@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vis-llm-latent"
+version = "0.0.1"
+
+[tool.setuptools.packages.find]
+where = ["."]  # Look for packages in the current directory (project root)
+include = ["src*"] # Find 'src' and any subpackages like 'src.whatever'

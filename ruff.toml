@@ -1,0 +1,2 @@
+line-length = 120 # Overrides the global line-length for the formatter
+ignore = ["E731"] # E731 disallows lambda expressions assigned to a variable, which simplifies creating the 'filter' in lsdata.metadata.filter_metas

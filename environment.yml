@@ -1,0 +1,32 @@
+# Install with `conda env create -f environment.yml`
+# Install into a path with `--prefix <path>`
+# pynvml can optionally be installed to enable utilization-based GPU selection
+# If installing on a login node or something w/o GPUs, you can make sure pytorch is a cuda version by prepending CONDA_OVERRIDE_CUDA=<version> to the install command.
+# Eg. CONDA_OVERRIDE_CUDA="12.1" conda env create -f environment.yml
+
+name: vis-llm-latent
+channels:
+  - conda-forge
+  - rapidsai
+dependencies:
+  - python=3.12
+  - pytorch=2.7.0
+  - numpy=2.2.6
+  - scikit-learn
+  - umap-learn
+  - matplotlib
+  - pillow
+  - ipython
+  - ipykernel
+  - jupyterlab
+  - tqdm
+  - transformers
+  - datasets
+  - cudf=25.08.00
+  - cuml=25.08.00
+  - pynvjitlink=0.7.0
+  - numba-cuda=0.14.0
+  - pip
+  - pip:
+    - -e .
+
