@@ -139,8 +139,8 @@ class Vis2DDimReductConfig:
             If None, uses default for the chosen method. Defaults to None.
         dim_reduct_kwargs (dict | None):
             Kwargs for the dim reduct object
-        n_fit (float | int | None):
-            Settings to fit dim_reduct to only a random subset of the data. If it is a float (in the interval (0, 1) ), the fit will be to that proportion of the data. If an int, it will be to that number of datapoints.
+        n_fit (float | int | str | None):
+            Settings to fit dim_reduct to only a random subset of the data. If it is a float (in the interval (0, 1) ), the fit will be to that proportion of the data. If an int, it will be to that number of datapoints. If it is the string "same as transform", the same data points used to transform will be used to fit.
         n_transform (float | int | None):
             Settings to transform and visualize only a random subset of data. If it is a float (in the interval (0, 1) ), the fit will be to that proportion of the data. If an int, it will be to that number of datapoints. The number of datapoints transformed/visualized may not be exactly equal to n_transform. Instead, it will be the closest value which allows an equal number of data points per layer.
         disable_pca_transform_centering (bool, optional): If True and using PCA, disables centering during transform.

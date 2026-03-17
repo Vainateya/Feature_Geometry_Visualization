@@ -12,7 +12,7 @@ dependencies:
   - python=3.12
   - pytorch=2.7.0
   - numpy=2.2.6
-  - scikit-learn
+  - scikit-learn=1.5
   - umap-learn
   - matplotlib
   - pillow

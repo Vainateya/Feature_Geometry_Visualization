@@ -52,4 +52,7 @@ for model, data_name in model_to_data_name.items():
         )
     ]
 
+    if model == "llama":
+        vis_dim_reduct_config[0].dim_reduct_kwargs = {"n_epochs": 100000, "metric": "cosine", "n_neighbors": 50, "min_dist": 0.5, "repulsion_strength": 5.0}
+
     visualizer(vis_config, vis_dim_reduct_config)

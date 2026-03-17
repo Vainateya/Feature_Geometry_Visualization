@@ -42,7 +42,7 @@ Reduce dim from 4096 to 512:
 
 ```python
 python src/generation/dim_reduct.py \
-    --data_name="huggyllama-llama-7b_latents-text-64_samples-2048_sequence_length-identity" \
+    --data_name="huggyllama-llama-7b_latents-text-pg19-64_samples-2048_sequence_length-identity" \
     --new_dim=512 \
     --n_fit=4000000 \
     --n_fit_samples=32

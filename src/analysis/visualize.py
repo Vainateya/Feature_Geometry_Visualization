@@ -381,7 +381,11 @@ def vis_2d_dim_reduct(
 
     # Create and fit dim_reduct if it was not provided in prev_dim_reduct
 
-    if dim_reduct is None:
+    if n_fit == "same as transform":
+        if dim_reduct is not None:
+            raise ValueError("n_fit cannot be 'same as transform' if prev_dim_reduct is provided")
+        fit_data = None
+    elif dim_reduct is None:
         # flatten data into 2d array, list of latent states
         fit_data = data.reshape((-1, n_embed))
 
@@ -454,6 +458,30 @@ def vis_2d_dim_reduct(
     umap_types = (UMAP,)
     if HAS_CUML:
         umap_types += (cuml_UMAP,)
+
+    if n_fit == "same as transform":
+
+        if config.verbose:
+            print(f"Fitting dim reduct with transform data points.")
+
+        if fit_data is not None:
+            raise ValueError("fit_data should be None!")
+
+        fit_data = transform_data
+
+        if n_components is None:
+            n_components = 2
+
+        # In case its None
+        dim_reduct_kwargs = dim_reduct_kwargs or {}
+
+        with timer(message="Dim reduct fit complete! Time taken: {}", disable=not config.verbose):
+            if dim_reduct_mode == "pca":
+                dim_reduct = PCA(n_components=n_components, random_state=config.seed, **dim_reduct_kwargs)
+                dim_reduct.fit(fit_data)
+            elif dim_reduct_mode == "umap":
+                dim_reduct = _UMAP(n_components=n_components, random_state=config.seed, **dim_reduct_kwargs)
+                dim_reduct.fit(fit_data)
 
     with timer(message="Dim reduct transform complete! Time taken: {}", disable=not config.verbose):
         if isinstance(dim_reduct, PCA):
