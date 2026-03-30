@@ -1,7 +1,7 @@
 # Exploring LLM Latent Space Geometry Through Dimensionality Reduction
 
 [![arXiv](https://img.shields.io/badge/arXiv-2511.21594-b31b1b.svg)](https://arxiv.org/html/2511.21594)
-[![ICLR Blogpost](https://shields.io)](https://github.io)
+[![ICLR Blogpost](https://shields.io)](https://iclr-blogposts.github.io/2026/blog/2026/vis-llm-latent-geometry/)
 
 ## Environment
 
